@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solvex PDF - Sign Up</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Global Styles (Variables) -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Page Specific Styles -->
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+
+    <!-- Back Button -->
+    <button id="back-btn" class="back-btn">
+        <i class="ph ph-arrow-left"></i>
+        <span>Back</span>
+    </button>
+
+    <!-- Background Shapes -->
+    <div class="auth-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="auth-container">
+        <div class="auth-card fade-in-up">
+            <div class="auth-header">
+                <h2>Create Your Account</h2>
+                <p>Join Solvex PDF for powerful PDF tools.</p>
+            </div>
+
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="name@example.com" required>
+                    <p class="error-msg" id="email-error"></p>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" placeholder="Create a password" required>
+                        <button type="button" class="toggle-password" tabindex="-1">
+                            <i class="ph ph-eye-slash"></i>
+                        </button>
+                    </div>
+                    <!-- Strength Meter -->
+                    <div class="strength-meter">
+                        <div class="strength-bar">
+                            <div class="fill"></div>
+                        </div>
+                        <span class="strength-text">Weak</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                    <p class="error-msg" id="password-error"></p>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="terms-label">
+                        <input type="checkbox" id="terms" required>
+                        <span class="checkmark"></span>
+                        <span>I agree to the <a href="#">Terms & Conditions</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-animate">
+                    <span>Sign Up</span>
+                    <div class="ripple"></div>
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>or sign up with</span>
+            </div>
+
+            <div class="social-login">
+                <button class="btn btn-social">
+                    <i class="ph-fill ph-google-logo"></i>
+                    <span>Google</span>
+                </button>
+                <button class="btn btn-social">
+                    <i class="ph-fill ph-github-logo"></i>
+                    <span>GitHub</span>
+                </button>
+            </div>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html" class="hover-underline">Log in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+
+    <script src="signup.js"></script>
+</body>
+
+</html>

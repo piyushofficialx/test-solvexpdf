@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solvex PDF - Verification</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyan: '#70d6ff',
+                        pink: '#ff70a6',
+                        orange: '#ff9770',
+                        yellow: '#ffd670',
+                        lime: '#e9ff70',
+                        dark: '#1a1a1a',
+                        gray: '#4a4a4a',
+                        light: '#f8f9fa',
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        display: ['DM Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="otp.css">
+</head>
+
+<body class="bg-light min-h-screen flex flex-col p-4 relative overflow-x-hidden overflow-y-auto font-sans">
+
+    <!-- Background Shapes (Using custom CSS for complex animations to keep HTML clean) -->
+    <div class="auth-bg-shapes fixed inset-0 -z-10 pointer-events-none">
+        <div class="shape shape-1 absolute rounded-full opacity-50 blur-[100px]"></div>
+        <div class="shape shape-2 absolute rounded-full opacity-50 blur-[100px]"></div>
+        <div class="shape shape-3 absolute rounded-full opacity-50 blur-[100px]"></div>
+    </div>
+
+    <!-- Back Button -->
+    <button id="back-btn"
+        class="absolute top-8 left-8 flex items-center gap-2 px-6 py-3 bg-white border border-black/5 rounded-full font-semibold text-gray-600 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-md hover:text-dark z-50">
+        <i class="ph ph-arrow-left text-lg"></i>
+        <span>Back</span>
+    </button>
+
+    <!-- Main Container (Safe Centering: m-auto) -->
+    <div class="w-full max-w-md m-auto relative z-10">
+
+        <!-- Card -->
+        <div class="bg-white/90 backdrop-blur-xl border border-white/50 rounded-3xl p-10 shadow-lg animate-fade-up">
+
+            <div class="text-center mb-8">
+                <h2 class="font-display font-bold text-3xl text-dark mb-2">Enter Verification Code</h2>
+                <p class="text-gray-600">We’ve sent a 6-digit code to your email. Enter it below to continue.</p>
+            </div>
+
+            <form id="otp-form" class="space-y-8">
+
+                <!-- OTP Inputs -->
+                <div class="flex justify-between gap-2" id="otp-container">
+                    <input type="text" maxlength="1"
+                        class="otp-input w-12 h-14 text-center text-xl font-bold rounded-xl border-2 border-slate-200 bg-white focus:border-cyan focus:ring-4 focus:ring-cyan/10 outline-none transition-all"
+                        inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code">
+                    <input type="text" maxlength="1"
+                        class="otp-input w-12 h-14 text-center text-xl font-bold rounded-xl border-2 border-slate-200 bg-white focus:border-cyan focus:ring-4 focus:ring-cyan/10 outline-none transition-all"
+                        inputmode="numeric" pattern="[0-9]*">
+                    <input type="text" maxlength="1"
+                        class="otp-input w-12 h-14 text-center text-xl font-bold rounded-xl border-2 border-slate-200 bg-white focus:border-cyan focus:ring-4 focus:ring-cyan/10 outline-none transition-all"
+                        inputmode="numeric" pattern="[0-9]*">
+                    <input type="text" maxlength="1"
+                        class="otp-input w-12 h-14 text-center text-xl font-bold rounded-xl border-2 border-slate-200 bg-white focus:border-cyan focus:ring-4 focus:ring-cyan/10 outline-none transition-all"
+                        inputmode="numeric" pattern="[0-9]*">
+                    <input type="text" maxlength="1"
+                        class="otp-input w-12 h-14 text-center text-xl font-bold rounded-xl border-2 border-slate-200 bg-white focus:border-cyan focus:ring-4 focus:ring-cyan/10 outline-none transition-all"
+                        inputmode="numeric" pattern="[0-9]*">
+                    <input type="text" maxlength="1"
+                        class="otp-input w-12 h-14 text-center text-xl font-bold rounded-xl border-2 border-slate-200 bg-white focus:border-cyan focus:ring-4 focus:ring-cyan/10 outline-none transition-all"
+                        inputmode="numeric" pattern="[0-9]*">
+                </div>
+
+                <!-- Resend Link -->
+                <div class="text-center text-sm font-medium text-gray-600">
+                    Didn't receive?
+                    <button type="button" id="resend-btn" class="text-cyan hover:underline ml-1 font-bold">Resend
+                        Code</button>
+                    <span id="timer" class="ml-2 text-gray-400 hidden">00:30</span>
+                </div>
+
+                <!-- Main Button -->
+                <button type="submit"
+                    class="w-full py-4 text-center bg-dark text-white font-bold text-lg rounded-xl shadow-lg transition-transform hover:-translate-y-1 hover:shadow-xl active:scale-95 relative overflow-hidden group">
+                    <span class="relative z-10 flex items-center justify-center gap-2 btn-text">
+                        <span>Continue</span>
+                    </span>
+                    <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+
+    <script src="otp.js"></script>
+</body>
+
+</html>

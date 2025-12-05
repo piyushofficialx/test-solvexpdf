@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solvex PDF - Image to PDF Converter</title>
+    <meta name="description"
+        content="Convert JPG, PNG, WEBP images to PDF instantly. Free, private, and secure image to PDF converter with built-in editor and OCR.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="converter.css">
+
+    <!-- Lenis (Smooth Scroll) -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css">
+    <script src="https://unpkg.com/compressorjs@1.2.1/dist/compressor.min.js"></script>
+    <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+</head>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navbar (Cloned from index.html) -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="ph-fill ph-files"></i>
+                </div>
+                Solvex PDF
+            </a>
+            <div class="nav-links">
+                <a href="index.html#features">Features</a>
+                <a href="index.html#comparison">Comparison</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-secondary">Log In</button>
+                <button class="btn btn-primary">Try Free</button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="mobile-nav-links">
+                <a href="index.html#features">Features</a>
+                <a href="index.html#comparison">Comparison</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="index.html#faq">FAQ</a>
+            </div>
+            <div class="mobile-actions">
+                <button class="btn btn-secondary full-width">Log In</button>
+                <button class="btn btn-primary full-width">Try Free</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Converter Page Content will be injected here -->
+        <section class="converter-hero">
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+
+            <div class="container">
+                <div class="hero-content text-center">
+                    <span class="badge fade-in">Free Online Tool</span>
+                    <h1 class="fade-in delay-1">Convert Images to <br><span class="highlight">PDF Instantly</span></h1>
+                    <p class="hero-sub fade-in delay-2">Fast, private and smart — with powerful editing tools.</p>
+                </div>
+
+                <!-- Upload / Editor Interface -->
+                <div id="app-interface" class="app-interface fade-in delay-3">
+
+                    <!-- State 1: Upload -->
+                    <div id="upload-view" class="upload-view">
+                        <div class="upload-box" id="drop-zone">
+                            <div class="upload-icon-container">
+                                <i class="ph ph-upload-simple"></i>
+                            </div>
+                            <h3>Drag & Drop images here</h3>
+                            <p>or click to browse files</p>
+                            <span class="file-types">JPG, PNG, WEBP, HEIC supported</span>
+                            <input type="file" id="file-input" multiple accept="image/*" hidden>
+                        </div>
+                    </div>
+
+                    <!-- State 2: Editor (Hidden initially) -->
+                    <div id="editor-view" class="editor-view hidden">
+                        <!-- Sidebar / Toolbar -->
+                        <aside class="editor-sidebar">
+                            <div class="sidebar-group">
+                                <h4>Files</h4>
+                                <div class="file-actions">
+                                    <button class="tool-btn" id="btn-add-more" title="Add Images"><i
+                                            class="ph ph-plus"></i></button>
+                                    <button class="tool-btn" id="btn-delete-all" title="Clear All"><i
+                                            class="ph ph-trash"></i></button>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <button class="tool-btn" id="btn-rotate-all" title="Rotate All"><i
+                                    class="ph ph-arrows-clockwise"></i></button>
+                            <button class="tool-btn" id="btn-ocr-toggle" title="OCR Text (Simulated)"><i
+                                    class="ph ph-text-t"></i></button>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="sidebar-group">
+                    <h4>Compression</h4>
+                    <div class="setting-item">
+                        <label>Level</label>
+                        <select id="setting-compression">
+                            <option value="none">None (Original)</option>
+                            <option value="medium" selected>Medium (Good)</option>
+                            <option value="high">High (Smallest)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="sidebar-group">
+                    <h4>Settings</h4>
+                    <div class="setting-item">
+                        <label>Page Size</label>
+                        <select id="setting-page-size">
+                            <option value="a4">A4</option>
+                            <option value="letter">Letter</option>
+                            <option value="fit">Fit Image</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Orientation</label>
+                        <select id="setting-orientation">
+                            <option value="portrait">Portrait</option>
+                            <option value="landscape">Landscape</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Margin</label>
+                        <select id="setting-margin">
+                            <option value="none">None</option>
+                            <option value="small">Small</option>
+                            <option value="normal">Normal</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sidebar-footer">
+                    <button id="btn-convert" class="btn btn-primary full-width">
+                        <span>Convert to PDF</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </button>
+                </div>
+                </aside>
+
+                <!-- Main Preview Area -->
+                <div class="editor-main">
+                    <div class="toolbar-top">
+                        <h3 id="file-count">0 Images</h3>
+                        <div class="view-controls">
+                            <button class="tool-btn small active" title="Grid View"><i
+                                    class="ph ph-squares-four"></i></button>
+                            <!-- <button class="tool-btn small" title="List View"><i class="ph ph-list-dashes"></i></button> -->
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                </div>
+                <p id="progress-subtext">Optimizing images</p>
+            </div>
+            </div>
+
+    </main>
+
+    <!-- Footer (Cloned from index.html) -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <i class="ph-fill ph-files"></i>
+                        </div>
+                        Solvex PDF
+                    </a>
+                    <p>The smartest way to manage your documents. Secure, fast, and beautiful.</p>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Solvex PDF. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Custom JS -->
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+
+    <script src="converter.js"></script>
+    <script>
+        // Init Lenis
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Custom Cursor Logic (replicated from main script)
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+
+        window.addEventListener('mousemove', function (e) {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            // Simple follow effect for outline
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+    </script>
+</body>
+
+</html>

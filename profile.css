@@ -1,0 +1,95 @@
+/* --- Profile Page Custom Styles --- */
+
+/* Minimal Fade Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Dark Mode Overrides */
+body.dark {
+    background-color: #111827;
+    /* Tailwind gray-900 */
+    color: #F9FAFB;
+}
+
+body.dark .bg-surface {
+    background-color: #1F2937;
+    /* Tailwind gray-800 */
+    border-color: #374151;
+    /* Tailwind gray-700 */
+}
+
+body.dark input,
+body.dark textarea {
+    background-color: #111827;
+    border-color: #374151;
+    color: #F3F4F6;
+}
+
+body.dark input:focus,
+body.dark textarea:focus {
+    border-color: #4C7CF6;
+    background-color: #1a1a1a;
+}
+
+body.dark #back-btn {
+    background-color: #1F2937;
+    border-color: #374151;
+    color: #D1D5DB;
+}
+
+body.dark #back-btn:hover {
+    background-color: #374151;
+    color: #fff;
+}
+
+body.dark .text-gray-900 {
+    color: #F9FAFB;
+}
+
+body.dark .text-gray-700 {
+    color: #D1D5DB;
+}
+
+body.dark .text-gray-600 {
+    color: #9CA3AF;
+}
+
+body.dark .bg-gray-50 {
+    background-color: #111827;
+}
+
+/* In dark mode, update toggle background */
+body.dark #theme-toggle {
+    background-color: #374151;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D1D5DB;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9CA3AF;
+}

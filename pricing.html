@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solvex PDF - Pricing</title>
+    <meta name="description"
+        content="Simple, transparent pricing for Solvex PDF. Choose the plan that fits your needs.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Manrope:wght@400;600;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pricing-style.css">
+
+    <!-- Lenis (Smooth Scroll) -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- Icons (Phosphor Icons for modern look) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Exact Navbar from index.html -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon"><i class="ph-fill ph-files"></i></span>
+                Solvex PDF
+            </a>
+            <div class="nav-links">
+                <a href="index.html#features">Features</a>
+                <a href="index.html#comparison">Compare</a>
+                <a href="pricing.html" class="active">Pricing</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-secondary">Log In</button>
+                <button class="btn btn-primary">Try Free</button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+        <div class="mobile-menu">
+            <a href="index.html#features">Features</a>
+            <a href="index.html#comparison">Compare</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <div class="mobile-actions">
+                <button class="btn btn-secondary full-width">Log In</button>
+                <button class="btn btn-primary full-width">Try Free</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Pricing Hero & Cards -->
+        <section class="pricing-hero">
+            <div class="pricing-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span class="badge">Flexible Plans</span>
+                    <h1 class="pricing-title">Simple pricing for <br><span class="highlight">everyone</span></h1>
+
+                    <!-- Toggle Switch -->
+                    <div class="pricing-toggle-wrapper">
+                        <span class="toggle-label">Monthly</span>
+                        <label class="switch-container">
+                            <input type="checkbox" id="pricing-toggle">
+                            <span class="slider-track">
+                                <span class="slider-knob"></span>
+                            </span>
+                        </label>
+                        <span class="toggle-label">Yearly <span class="save-badge">Save 30%</span></span>
+                    </div>
+                </div>
+
+                <!-- 3-Tier Pricing Layout -->
+                <div class="pricing-tiers-grid">
+                    <!-- Free Tier -->
+                    <div class="tier-card reveal-up delay-1">
+                        <div class="tier-header">
+                            <h3 class="tier-name">Free</h3>
+                            <div class="tier-price">
+                                <span class="currency">$</span>
+                                <span class="amount">0</span>
+                                <span class="period">/mo</span>
+                            </div>
+                            <p class="tier-desc">Perfect for quick, one-off tasks.</p>
+                        </div>
+                        <div class="tier-highlight-bar"></div>
+                        <ul class="tier-features">
+                            <li><i class="ph-fill ph-check-circle"></i> 50 Images per day</li>
+                            <li><i class="ph-fill ph-check-circle"></i> Standard processing speed</li>
+                            <li><i class="ph-fill ph-check-circle"></i> Basic compression</li>
+                            <li><i class="ph-fill ph-check-circle"></i> Access to simple tools</li>
+                            <li class="disabled"><i class="ph-fill ph-x-circle"></i> No OCR support</li>
+                        </ul>
+                        <button class="btn btn-secondary full-width">Get Started</button>
+                    </div>
+
+                    <!-- Pro Tier (Highlighted) -->
+                    <div class="tier-card featured reveal-up">
+                        <div class="featured-badge">Most Popular</div>
+                        <div class="tier-header">
+                            <h3 class="tier-name">Pro</h3>
+                            <div class="tier-price">
+                                <span class="currency">$</span>
+                                <span class="amount" id="price-pro">9</span>
+                                <span class="period">/mo</span>
+                            </div>
+                            <p class="tier-desc">For professionals & heavy users.</p>
+                        </div>
+                        <div class="tier-highlight-bar gradient"></div>
+                        <ul class="tier-features">
+                            <li><i class="ph-fill ph-check-circle"></i> <strong>Unlimited</strong> images</li>
+                            <li><i class="ph-fill ph-check-circle"></i> <strong>Priority</strong> processing</li>
+                            <li><i class="ph-fill ph-check-circle"></i> Smart Pro Compression</li>
+                            <li><i class="ph-fill ph-check-circle"></i> Advanced OCR Engine</li>
+                            <li><i class="ph-fill ph-check-circle"></i> E-Signatures & Annotations</li>
+                        </ul>
+                        <button class="btn btn-primary full-width">Start 7-Day Trial</button>
+                    </div>
+
+                    <!-- Team Tier -->
+                    <div class="tier-card reveal-up delay-2">
+                        <div class="tier-header">
+                            <h3 class="tier-name">Team</h3>
+                            <div class="tier-price">
+                                <span class="currency">$</span>
+                                <span class="amount" id="price-team">29</span>
+                                <span class="period">/mo</span>
+                            </div>
+                            <p class="tier-desc">Collaborate with your team.</p>
+                        </div>
+                        <div class="tier-highlight-bar"></div>
+                        <ul class="tier-features">
+                            <li><i class="ph-fill ph-check-circle"></i> Includes <strong>5 Users</strong></li>
+                            <li><i class="ph-fill ph-check-circle"></i> All Pro features</li>
+                            <li><i class="ph-fill ph-check-circle"></i> Centralized Billing</li>
+                            <li><i class="ph-fill ph-check-circle"></i> Team Folders</li>
+                            <li><i class="ph-fill ph-check-circle"></i> Priority Email Support</li>
+                        </ul>
+                        <button class="btn btn-outline full-width">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table Section -->
+        <section class="compare-detailed-section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2>Detailed Comparison</h2>
+                    <p>See exactly what you get with each plan.</p>
+                </div>
+
+                <div class="table-responsive reveal-up">
+                    <table class="detailed-table">
+                        <thead>
+                            <tr>
+                                <th>Features</th>
+                                <th>Free</th>
+                                <th class="highlight-col">Pro</th>
+                                <th>Team</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="section-row">
+                                <td colspan="4">Core Features</td>
+                            </tr>
+                            <tr>
+                                <td>Daily Conversions</td>
+                                <td>50</td>
+                                <td class="highlight-col">Unlimited</td>
+                                <td>Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Max File Size</td>
+                                <td>15MB</td>
+                                <td class="highlight-col">200MB</td>
+                                <td>500MB</td>
+                            </tr>
+                            <tr>
+                                <td>Processing Speed</td>
+                                <td>Standard</td>
+                                <td class="highlight-col">Fast</td>
+                                <td>Ultra-Fast</td>
+                            </tr>
+
+                            <tr class="section-row">
+                                <td colspan="4">Advanced Tools</td>
+                            </tr>
+                            <tr>
+                                <td>OCR (Text Recognition)</td>
+                                <td><i class="ph ph-x"></i></td>
+                                <td class="highlight-col"><i class="ph-fill ph-check-circle c-green"></i></td>
+                                <td><i class="ph-fill ph-check-circle c-green"></i></td>
+                            </tr>
+                            <tr>
+                                <td>E-Signatures</td>
+                                <td><i class="ph ph-x"></i></td>
+                                <td class="highlight-col"><i class="ph-fill ph-check-circle c-green"></i></td>
+                                <td><i class="ph-fill ph-check-circle c-green"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Smart Compression</td>
+                                <td>Basic</td>
+                                <td class="highlight-col">Advanced</td>
+                                <td>Advanced</td>
+                            </tr>
+
+                            <tr class="section-row">
+                                <td colspan="4">Support & Team</td>
+                            </tr>
+                            <tr>
+                                <td>Support</td>
+                                <td>Community</td>
+                                <td class="highlight-col">Priority Email</td>
+                                <td>24/7 Dedicated</td>
+                            </tr>
+                            <tr>
+                                <td>Team Management</td>
+                                <td><i class="ph ph-x"></i></td>
+                                <td class="highlight-col"><i class="ph ph-x"></i></td>
+                                <td><i class="ph-fill ph-check-circle c-green"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Breakdown (Icons) -->
+        <section class="feature-breakdown">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2>Advanced Capabilities</h2>
+                </div>
+                <div class="breakdown-grid">
+                    <div class="breakdown-item reveal-up">
+                        <div class="icon-box c-cyan"><i class="ph ph-scan"></i></div>
+                        <h3>OCR Engine</h3>
+                        <p>Extract selectable text from any image format instantly.</p>
+                    </div>
+                    <div class="breakdown-item reveal-up delay-1">
+                        <div class="icon-box c-pink"><i class="ph ph-lock-key"></i></div>
+                        <h3>Privacy First</h3>
+                        <p>Zero-knowledge processing. Your files stay on your device.</p>
+                    </div>
+                    <div class="breakdown-item reveal-up delay-2">
+                        <div class="icon-box c-orange"><i class="ph ph-lightning"></i></div>
+                        <h3>Lightning Fast</h3>
+                        <p>Optimized algorithms for sub-second conversions.</p>
+                    </div>
+                    <div class="breakdown-item reveal-up delay-3">
+                        <div class="icon-box c-lime"><i class="ph ph-users-three"></i></div>
+                        <h3>Team Sync</h3>
+                        <p>Share templates and recent conversions with your team.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section-alt">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2>Common Questions</h2>
+                </div>
+                <!-- Reusing FAQ structure but styled slightly differently if needed, or same -->
+                <div class="faq-list">
+                    <div class="faq-item reveal-up">
+                        <div class="faq-question">
+                            Can I cancel anytime?
+                            <i class="ph ph-caret-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, you can cancel your subscription at any time. Your plan will remain active until the
+                                end of the current billing cycle.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal-up delay-1">
+                        <div class="faq-question">
+                            Do you offer refunds?
+                            <i class="ph ph-caret-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer a 14-day money-back guarantee for all Pro and Team plans if you're not satisfied
+                                with the service.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal-up delay-2">
+                        <div class="faq-question">
+                            What payment methods do you accept?
+                            <i class="ph ph-caret-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We accept all major credit cards (Visa, Mastercard, Amex) and PayPal.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item reveal-up delay-3">
+                        <div class="faq-question">
+                            Is the Free plan really free forever?
+                            <i class="ph ph-caret-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! The Free plan is free forever. It's not a trial. You can use it as long as you like
+                                for basic needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Exact Footer from index.html -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo"> Solvex PDF </a>
+                <p>Simple, secure, and fast PDF tools for everyone.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Product</h4>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">API</a>
+                </div>
+                <div class="link-group">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2024 Solvex PDF. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-client.js"></script>
+
+    <script src="pricing-script.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

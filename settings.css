@@ -1,0 +1,113 @@
+/* --- Settings Page Custom Styles --- */
+
+/* Minimal Fade Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Dark Mode Overrides */
+body.dark {
+    background-color: #111827;
+    color: #F9FAFB;
+}
+
+body.dark .bg-surface {
+    background-color: #1F2937;
+    border-color: #374151;
+}
+
+body.dark #back-btn {
+    background-color: #1F2937;
+    border-color: #374151;
+    color: #D1D5DB;
+}
+
+body.dark #back-btn:hover {
+    background-color: #374151;
+    color: #fff;
+}
+
+body.dark .text-gray-900 {
+    color: #F9FAFB;
+}
+
+body.dark .text-gray-700 {
+    color: #D1D5DB;
+}
+
+body.dark .text-gray-500 {
+    color: #9CA3AF;
+}
+
+body.dark .bg-gray-50 {
+    background-color: #111827;
+}
+
+/* Toggles in Dark Mode */
+body.dark .bg-gray-200 {
+    background-color: #374151;
+}
+
+/* Modal Dark Mode */
+body.dark #modal-card {
+    background-color: #1F2937;
+    border-color: #374151;
+}
+
+body.dark #cancel-delete {
+    background-color: #1F2937;
+    border-color: #374151;
+    color: #D1D5DB;
+}
+
+body.dark #cancel-delete:hover {
+    background-color: #374151;
+    color: #fff;
+}
+
+/* Danger Zone Dark Mode */
+body.dark .bg-red-50\/50 {
+    background-color: rgba(127, 29, 29, 0.2);
+    border-color: rgba(127, 29, 29, 0.4);
+}
+
+body.dark .text-red-400 {
+    color: #FCA5A5;
+}
+
+body.dark #delete-btn {
+    background-color: #1F2937;
+    border-color: #7F1D1D;
+    color: #FCA5A5;
+}
+
+body.dark #delete-btn:hover {
+    background-color: #7F1D1D;
+    color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4B5563;
+    border-radius: 10px;
+}
